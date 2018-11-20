@@ -1,0 +1,9 @@
+<div class="pointer" [@pointerAnim] *ngIf="showPointer == 'true'">
+  <span class="pointer-text">
+    You are here
+  </span>
+  <svg width="46" height="60" class="pointer-svg">
+    <circle cx="20" cy="7" r="7" class="pointer-svg-circle" />
+    <line x1="20" y1="7" x2="20" y2="50" class="pointer-svg-line" />
+  </svg>
+</div>

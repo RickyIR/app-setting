@@ -1,0 +1,47 @@
+<section class="workshop-dashboard">
+  <div class="container">
+    <div class="workshop-dashboard-content">
+      <div class="workshop-dashboard-titlebar">
+        <h1 class="workshop-dashboard-title">Workshops
+          <span class="workshop-dashboard-subtitle">(<img *ngIf="!workshops" src="assets/images/three-dots.svg" alt="loading" width="20px" />{{!workshops ? '' : workshops.length}})</span>
+        </h1>
+      </div>
+      <div class="row pt-5 pb-5">
+        <div class="workshop-dashboard-placeholders">
+
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3" *ngFor="let workshop of workshops">
+          <div class="workshops-wrapper">
+            <div class="workshops-image" [ngClass]="{'placeholder-image': !workshop}" aria-hidden="true">
+              <a href="#" [routerLink]="['/workshop', workshop.permalink]">
+                <div class="workshops-image-foreground"></div>
+                <img src="{{workshop.files.poster}}" alt="" />
+              </a>
+            </div>
+            <div class="workshops-body">
+              <h3 class="workshops-item-title" style="font-size:1rem;" [ngClass]="{'placeholder-text': !workshop}"><a [routerLink]="['/workshop', workshop.permalink]">{{workshop.name}}</a></h3>
+              <p [ngClass]="{'placeholder-text': !workshop, 'placeholder-text--short': !workshop}" class="workshops-item-content">
+                <span *ngIf="workshop">with </span>
+                <a class="workshops-item-expert" hdPopup href="#workshop-profile">{{workshop.author.name.first}} {{workshop.author.name.last}}</a>
+              </p>
+              <div class="workshops-bar" [ngClass]="{'d-none': !workshop}">
+                  <div class="d-flex justify-content-between">
+                    <button class="workshops-bar-item" hdPopup id="views-button-1">
+                      <i class="far fa-eye" aria-hidden="true"></i>
+                      <span>{{workshop.views}} <span class="sr-only">views</span></span>
+                    </button>
+                    <div class="workshops-bar-stars">
+                        <hd-rating-stars rating="{{workshop.rating}}"></hd-rating-stars>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="offset-md-3 col-md-6 offset-lg-4 col-lg-4 mt-3">
+          <button disabled class="btn btn-block btn-focused btn-lg btn-outline-lightpink btn-bold" type="button" hdPopup id="moreWorkshops">More workshops</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,198 @@
+$c_back: #e4e4e5;
+$c_gray:#646464;
+$c_darkgray: #444444;
+
+$c_background: #F2F2F2;
+
+$c_primary: #008085;
+$c_secondary: #eb005e;
+$c_minors: #eb005e;
+
+$ff_open: 'GothamPro';
+$ff_merri: 'Merriweather', serif;
+
+@mixin fc-color($color, $bg-color){
+  &, section, body, main, header, footer, nav, div, ul, li{
+    background-color: $bg-color!important;
+    color: $color!important;
+    border-color: $color!important;
+  }
+
+  section{
+    &:before{
+      background-color: $color!important;
+      color: $bg-color!important;
+    }
+  }
+
+  a, p, h1, h2, h3, h4, h5, h6, span, strong, small, label{
+    color: $color!important;
+    border-color: $color!important;
+  }
+
+  a[role=tab]{
+    background-color: $bg-color!important;
+    border-color: $color!important;
+  }
+
+  textarea{
+    border-color: $color!important;
+    background-color: transparent!important;
+    color: $color!important;
+
+    &::placeholder{
+      color: $color!important;
+    }
+  }
+
+  div.able-tooltip{
+    background-color: $color!important;
+    color: $bg-color!important;
+  }
+
+  .btn{
+    color: $color!important;
+    border-color: $color!important;
+    background-color: transparent!important;
+
+    i{
+      color: $color!important;
+    }
+
+    span{
+      color: $color!important;
+    }
+
+    &:hover{
+      background-color: $color!important;
+      color: $bg-color!important;
+
+      span{
+        color: $bg-color!important;
+      }
+    }
+  }
+
+  .fc-color{
+    &-bg{
+      background-color: $color!important;
+
+      &-transparent{
+        background-color: transparent!important;
+      }
+    }
+
+    &-border{
+      border: 2px solid $color!important;
+    }
+  }
+
+  .fc-color-hover{
+    &-bg{
+      &:hover{
+        background-color: $color!important;
+        color: $bg-color!important;
+      }
+    }
+  }
+
+  .tablist-mentor-image{
+    img{
+      border: 2px solid $color!important;
+    }
+  }
+
+  .check_mark .sa-line{
+    background-color: $color!important;
+  }
+
+  .rating-stars-item + label{
+    &:after{
+      background-image: url('./assets/images/star_inside-new-black.png')!important;
+    }
+  }
+
+  .able-seekbar{
+    background-color: $color!important;
+  }
+
+  .pointer-svg{
+    fill: $color!important;
+    stroke: $color!important;
+  }
+
+  .checkmark{
+    &-static, &-animate{
+      stroke: $color!important;
+      fill: $bg-color!important;
+    }
+
+    &-animate{
+      &__circle{
+        stroke: black;
+      }
+
+      animation: fill-black .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+  }
+
+  .fc-color-img{
+    &-playlist{
+      content: url('./assets/images/playlist-yellow.png');
+    }
+    &-community{
+      content: url('./assets/images/community-yellow.png');
+    }
+
+    @if($color == yellow){
+      &-logo{
+        content: url('./assets/images/hadleylogo-yellow.png');
+      }
+      &-braille{
+        content: url('./assets/images/braille-logo-yellow.png');
+      }
+    }
+  }
+
+  .main-video-tabs-tabs__link[aria-selected=true]{
+    &, & div{
+      background-color: $color!important;
+      color: $bg-color!important;
+    }
+
+    & span{
+      color: $bg-color!important;
+    }
+  }
+
+  .knowledge-form-checkbox + label{
+    &:before, &:after{
+      color: $bg-color!important;
+    }
+  }
+
+  .knowledge-form-checkbox:checked + label{
+    &:before{
+      background-color: $color!important;
+    }
+
+    &:after{
+      border-color: $bg-color!important;
+    }
+  }
+
+  .completion-bar-item{
+    &:before{
+      border: none;
+    }
+  }
+
+  .tablist-mentor-status{
+    background-color: transparent!important;
+    border: 2px solid $color!important;
+  }
+
+  .ratingstars{
+    fill: $color!important;
+  }
+}

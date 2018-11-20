@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+  <main class="login">
+    <div class="leftside">
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+          <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+            <div class="form-group mb-4 text-center">
+              <h1>Access code</h1>
+              <p class="text-muted">Please enter your access code.</p>
+              <input type="password" formControlName="code" class="form-control form-control-lg" [ngClass]="{'is-invalid': isError}" id="password">
+              <p class="invalid-feedback" style="font-size:.9rem;">Your access code is invalid.<br> Please try again or contact support team</p>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-outline-lightpink btn-bold btn-lg btn-capsule px-5">Let me in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="rightside">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-white">
+        <h2 class="text-center">Sign up</h2>
+        <p>It’s absolutely free and takes less than 30 seconds.</p>
+        <div class="form-group mt-4 text-center">
+          <button disabled class="btn btn-outline-white btn-capsule btn-lg btn-bold px-5">Sign up</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

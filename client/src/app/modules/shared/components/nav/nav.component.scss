@@ -1,0 +1,47 @@
+@import './../../../../../vars.scss';
+
+.navbar-nav{
+  width: 100%;
+  margin-left: 30px;
+
+  @media(max-width: 991px){
+    margin: 0;
+  }
+
+  .nav{
+    &-item{
+      margin-right: 20px;
+      font-size: 20px;
+    }
+
+    &-link{
+      color: inherit;
+      padding: 8px 16px;
+
+      @media(max-width: 767px){
+        color:inherit;
+        margin: 0.2rem 0.2rem 1.0rem 1.2rem;
+      }
+
+      &:hover{
+        color: $c_primary;
+      }
+
+      &:focus{
+        outline: 2px dotted inherit;
+      }
+    }
+  }
+}
+
+/*Medium*/
+@media (max-width: 767px){
+    .navbar-collapse{
+      width: 100%;
+      position: absolute;
+      top: 4.7rem;
+      left:0;
+      background-color: #FFFFFF;
+      z-index: 10001;
+    }
+}

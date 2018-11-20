@@ -1,0 +1,345 @@
+<section class="main-video">
+  <div class="container main-video-wrapper">
+    <div class="main-video-content">
+      <hd-video-player></hd-video-player>
+      <div class="main-video-content-bottom">
+        <h1 class="main-video-title">
+          <strong>
+            <a href="#workshop" hdPopup class="text-underline text-link">{{workshop.series.name}}:</a>
+          </strong>
+          {{workshop.name}}
+        </h1>
+        <p class="main-video-subtitle">with <a class="main-video-expert" hdPopup href="{{workshop.author.permalink}}">{{workshop.author.name.first}} {{workshop.author.name.last}}</a></p>
+
+        <div class="main-video-content-buttons">
+
+          <div class="d-flex flex-column flex-lg-row fc-32-column" role="tablist">
+
+
+
+
+            <a href="#" (click)="openTab($event, 'transcript')" role="tab" [hdAria]="{'expanded': activeTab == 'transcript', 'controls': activeTab == 'transcript' ? 'transcript' : undefined}" [ngClass]="{'active': activeTab == 'transcript'}" class="btn btn-outline-lightpink btn-capsule btn-bold mx-0 mx-lg-1 my-1 b1">
+              <i class="fas fa-file-alt"></i>
+              Transcript <i class="fas fa-sort-down"></i>
+            </a>
+    
+            <div class="main-video-transcript" id="transcript" *ngIf="activeTab == 'transcript'" role="tabpanel" aria-label="Transcript">
+
+              <div>
+                  <b>Setting Accessibility Shortcuts</b>
+
+                  Device: iPhone 7 Plus
+                  Software: iOS 10.3.2
+
+                  <p>
+                  *** Note
+                  Turn off Magnifier setting.
+                  Uncheck Zoom and VoiceOver from Accessibility Shortcuts.
+                  Turn on Do Not Disturb.
+                  Set VoiceOver speed to 50%.
+                  Turn on Hints.
+                  Set Auto-Lock to Never.
+                  </p>
+
+                  <p>Hello, my name is Douglas Walker.
+                  Today we are going to be taking a look
+                  at a really simple way that we have
+                  for quickly turning on & off
+                  our most frequently used accessibility features.
+                  And we will do this by setting up
+                  our accessibility shortcut.
+                  Now once we set up our accessibility shortcut
+                  we can simply just tap our Home button 3 times
+                  to quickly toggle our favorite accessibility features on and off.
+                  And, of course, our Home button
+                  is the small round button at the bottom center of our screen.
+                  Now we will be setting our accessibility shortcut
+                  to turn on and off VoiceOver today.
+                  However, we could also set it
+                  to toggle on and off some of our other accessibility features as well,
+                  such as our Magnifier
+                  or Invert Colors… or Grayscale.
+                  </p>
+                  <p>
+                  We could select Zoom…  switch control
+                  And even Assistive Touch.
+                  But like we said,
+                  we will be selecting VoiceOver today.
+                  Now we will be using our iPhone for today’s demonstration.
+                  </p>
+
+                  <p>
+                  But no worries…
+                  This same method will work
+                  whether we are using our iPhone, our iPad,
+                  or even our iPod Touch.
+                  Now some people also refer to our accessibility shortcut
+                  as our triple click home feature.
+                  And this can be really useful.
+                  Especially, if we are maybe sharing our device
+                  with someone that doesn’t necessarily need
+                  to use any accessibility features.
+                  Now our accessibility shortcut setting is currently turned off.
+                  So let’s take a quick look
+                  at how to set up our accessibility shortcut.
+                  Now our accessibility shortcut setting
+                  is under our Accessibility settings
+                  within our Settings app.
+                  And our Settings app
+                  is right here on our desktop.
+                  So how about we just flick to our Settings app
+                  and we will just flick.
+                  *** Touch Settings app
+                  </p>
+
+                  <p>
+                  And, here it is.
+                  So we will just single finger double tap to activate it.
+                  And we will just single finger double tap.
+                  *** Single finger double tap
+                  Great! Our Settings app has opened.
+                  And we have been placed on our Settings heading
+                  in the top center of our screen
+                  and just below the time in our status bar.
+                  Now our accessibility settings are actually within our General settings.
+                  So we will just right flick to our General button.
+                  And, we will just right flick.
+                  *** Right flick to General button and comment
+                  Okay, here is our General button.
+                  So we will just single finger double tap
+                  and we will open our General settings.
+                  We will just single finger double tap.
+                  *** Single finger double tap
+                  Great, our General settings have opened,
+                  and we have been placed on our back button
+                  in the top left corner of our screen.
+                  Remember, we are headed to our accessibility settings;
+                  so we will just right flick
+                  until we find our Accessibility button
+                  and we will right flick.
+                  </p>
+                  <p>
+                  *** Right flick to Accessibility and comment.
+                  All right, and here is our Accessibility button.
+                  So we will just single finger double tap
+                  to open our Accessibility settings.
+                  *** Single finger double tap
+                  Okay, we are getting there! LOL!
+                  Our Accessibility settings have opened
+                  and we have been placed once again
+                  on our back button
+                  in the top left corner of our screen.
+                  Okay, our Accessibility shortcut button
+                  is actually the very last item in our Accessibility list.
+                  Now, we could just keep right flicking through our Accessibility list.
+                  However, a really great gesture for quickly moving through a long list like this one
+                  is our 3-finger flick up gesture.
+                  But we first need to be within our list before we can actually use it.
+                  So how about we just right flick to the first item in our list.
+                  So we will just right flick.
+                  *** Right flick to VoiceOver and comment
+                  Okay, here is our VoiceOver button.
+                  And we heard VoiceOver announce, of course
+                  that it is currently turned on.
+                  And, that is great for us. LOL!
+                  </p>
+                  <p>
+                  Okay, let’s just use our 3-finger flick up gesture a couple of times
+                  to quickly move through our Accessibility list here.
+                  So we will just 3-finger flick up
+                  *** 3 finger flick up to Accessibility shortcut and comment
+                  Great! We just heard our end-of-list audio cue.
+                  So we know for sure
+                  that we have reached the end of our list.
+                  And remember,
+                  our accessibility shortcut
+                  is the last item in our list.
+                  So we will just touch near the bottom of our screen.
+                  And we will just touch
+                  </p>
+                  <p>
+                  *** Touch Accessibility Shortcuts button
+                  All right and here is our Accessibility Shortcuts button.
+                  So let’s just single finger double tap to open it.
+                  And we will single finger double tap.
+                  *** Single finger double tap
+                  </p>
+
+                  <p>
+                  Okay, finally, we are here. LOL!
+                  And once again,
+                  we have been placed on our back button
+                  in the top left corner of our screen.
+                  Now what we have is a list of items
+                  in which we can choose to be toggled on and off
+                  when we triple click our Home button.
+                  And, of course, VoiceOver is one of the items in our list.
+                  So how about we just right flick until we find VoiceOver.
+                  *** Right flick to VoiceOver and comment
+                  Great! VoiceOver is the first item in our list.
+                  And now if we want to select it…
+                  </p>
+                  <p>
+                  You guessed it… We just single finger double tap.
+                  So we will just single finger double tap.
+                  *** Single finger double tap
+                  Alright, we heard VoiceOver announce
+                  that VoiceOver is now selected.
+                  Now we could continue to right flick through our list here
+                  and choose other items that could serve as our accessibility shortcut
+                  like our magnifier
+                  or Invert Colors… or Grayscale.
+                  </p>
+                  <p>
+                  We could select Zoom… switch control
+                  and even Assistive Touch.
+                  However, today is all about VoiceOver.
+                  So now that we have VoiceOver selected,
+                  why don’t we give it a try?
+                  We will just triple click our Home button
+                  and we should be able to quickly turn off VoiceOver.
+                  So let’s just tap, or press, our Home button 3 times quickly.
+                  And we will just tap.
+                  </p>
+                  <p>
+                  *** Triple click Home button
+                  All right, and that was fast!
+                  VoiceOver announced that it is now off
+                  and we can now interact with our device using standard touch gestures.
+                  Then if we want to quickly turn on VoiceOver again
+                  we can just triple click our Home button.
+                  And since my iPhone isn’t much good to me without VoiceOver, LOL!
+                  Well, we will just triple click our Home button to turn it back on.
+                  Okay, we will quickly triple click.
+                  *** Triple click home button
+                  And there you go!
+                  </p>
+                  <p>
+                  VoiceOver, of course, is back on.
+                  And, hey, we are good to go.
+                  I tell you… it really is fantastic
+                  that we have a really simple method
+                  for quickly turning our accessibility features on and off.
+                  </p>
+                  <p>
+                  Again, my name is Douglas Walker.
+                  Take care and I’ll see you next time.
+                  </p>
+                  <button (click)="download(workshop.files.transcript)" class="btn btn-outline-lightpink btn-capsule btn-bold mx-0 mx-lg-1 my-1">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    Download
+                  </button>
+                  <button *ngIf="workshop.files.transcript_pdf" (click)="print(workshop.files.transcript_pdf)" class="btn btn-outline-lightpink btn-capsule btn-bold mx-0 mx-lg-1 my-1">
+                    <i class="fas fa-print"></i> Print
+                  </button>
+                  </div>
+            </div>
+
+
+            <a href="#" (click)="openTab($event, 'resources')" role="tab" [hdAria]="{'expanded': activeTab == 'resources', 'controls': activeTab == 'resources' ? 'resources' : undefined}" [ngClass]="{'active': activeTab == 'resources'}" class="btn btn-outline-lightpink btn-capsule btn-bold mx-0 mx-lg-1 my-1 b2">
+              <i class="far fa-newspaper"></i>
+              Resources <i class="fas fa-sort-down"></i>
+            </a>
+
+
+            <div class="main-video-resources" id="resources" *ngIf="activeTab == 'resources'" role="tabpanel" aria-label="Resources">
+                <!-- <div class="text-right">
+                  <a href="#">
+                    <i class="fas fa-plus"></i>
+                    Add to resources
+                  </a>
+                </div> -->
+                <div class="main-video-resources-item">
+                  <div class="d-flex">
+                    <span class="main-video-resources-item-icon"><i class="fas fa-link"></i></span>
+                    <div>
+                      <h3>
+                        <a href="#">Contact List Article</a>
+                      </h3>
+                      <p>View how users make thier emergency contact list on times magazine View how users make thier emergency contact list on times magazine...</p>
+                    </div>
+                  </div>
+                  <div class="button-group space-nowrap">
+                    <button class="btn btn-sm btn-outline-lightpink btn-capsule btn-bold mr-2">Print</button>
+                    <button class="btn btn-sm btn-outline-lightpink btn-capsule btn-bold">Download</button>
+                  </div>
+                </div>
+                <div class="main-video-resources-item">
+                  <div class="d-flex">
+                    <span class="main-video-resources-item-icon"><i class="fas fa-link"></i></span>
+                    <div>
+                      <h3>
+                        <a href="#">Contact List Article</a>
+                      </h3>
+                      <p>View how users make thier emergency contact list on times magazine View how users make thier emergency contact list on times magazine...</p>
+                    </div>
+                  </div>
+                  <div class="button-group space-nowrap">
+                    <button class="btn btn-sm btn-outline-lightpink btn-capsule btn-bold mr-2">Print</button>
+                    <button class="btn btn-sm btn-outline-lightpink btn-capsule btn-bold">Download</button>
+                  </div>
+                </div>
+                <div class="main-video-resources-item">
+                  <div class="d-flex">
+                    <span class="main-video-resources-item-icon"><i class="fas fa-link"></i></span>
+                    <div>
+                      <h3>
+                        <a href="#">Contact List Article</a>
+                      </h3>
+                      <p>View how users make thier emergency contact list on times magazine View how users make thier emergency contact list on times magazine...</p>
+                    </div>
+                  </div>
+                  <div class="button-group space-nowrap">
+                    <button class="btn btn-sm btn-outline-lightpink btn-capsule btn-bold mr-2">Print</button>
+                    <button class="btn btn-sm btn-outline-lightpink btn-capsule btn-bold">Download</button>
+                  </div>
+                </div>
+              </div>
+
+    
+          <div class="d-flex flex-column flex-lg-row fc-32-column otherbtn">
+            <div class="dropdown mx-0 mx-lg-1 my-1 b5">
+              <button class="btn btn-outline-lightpink btn-capsule btn-bold" style="min-width: 150px;" data-toggle="dropdown">
+                <i class="fas fa-share-alt-square"></i>
+                Share
+              </button>
+              <ul class="main-video-share dropdown-menu">
+                <li>
+                    <a href="#" hdPopup>
+                    <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hdPopup>
+                    <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hdPopup>
+                    <i class="fas fa-link"></i> Link
+                    </a>
+                </li>
+              </ul>
+          </div>
+          <button class="btn btn-outline-lightpink btn-capsule btn-bold mx-0 mx-lg-1 my-1 b6">
+            <i class="fas fa-heart"></i>
+            Add to favorites
+          </button>
+          </div>
+
+
+
+
+
+
+          
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+@import './../workshop/other/other.component.scss';
+
+.workshop-dashboard{
+  .container{
+      border: 1px solid #979797;
+      padding: 0;
+      background-color: #fff;
+      border-radius: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      padding-top: 100px;
+  }
+
+  &-content{
+    padding: 20px 59px 27px 59px;
+    margin: auto;
+  }
+
+  &-title{
+    margin: 0;
+    font-size: 2.5rem;
+    color: #444444;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,21 @@
+<section class="expert" role="region" aria-label="Ask Expert">
+  <div class="title-box">
+    <h2>Ask Expert</h2>
+  </div>
+  <div class="container">
+    <div class="col-12">
+      <div class="expert-mentor">
+        <div class="expert-mentor-image" aria-hidden="true">
+          <img [src]="author.image.url" [alt]="author.image.alt"/>
+        </div>
+        <div class="expert-mentor-content">
+          <p class="mb-0">Hadley Learning Expert</p>
+          <p class="mb-2"><a hdPopup popupText="Ask Learning Expert||Live chat with {{author.name.first}} {{author.name.last}} to get answers right away to your specific questions." href="#">{{author.name.first}} {{author.name.last}}</a></p>
+          <div>
+            <a hdPopup popupText="Ask Learning Expert||Live chat with {{author.name.first}} {{author.name.last}} to get answers right away to your specific questions." href="#" class="btn btn-bold expert-mentor-status">Online Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

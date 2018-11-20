@@ -1,0 +1,52 @@
+<div class="ratingstars" *ngIf="stars">
+  <span class="sr-only">Learners have given this workshop on average {{stars}} stars out of 5.</span>
+  <div class="ratingstars-star" aria-hidden="true">
+    <svg tabindex="-1" [attr.fill]="(stars > 0 && stars < 1) ? 'url(\'#grad1\')' : (stars >= 1 ? 'inherit' : '#e0ebeb')" width="25" height="22" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"/>
+
+      <linearGradient *ngIf="starsOffset" id="grad1">
+        <stop [attr.offset]="starsOffset + '%'" stop-color="#6e2747"/>
+        <stop [attr.offset]="starsOffset + 2 + '%'" stop-color="#e0ebeb"/>
+      </linearGradient>
+    </svg>
+  </div>
+  <div class="ratingstars-star" aria-hidden="true">
+    <svg tabindex="-1" [attr.fill]="(stars > 1 && stars < 2) ? 'url(\'#grad2\')' : (stars >= 2 ? 'inherit' : '#e0ebeb')" width="25" height="22" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"/>
+
+      <linearGradient *ngIf="starsOffset" id="grad2">
+        <stop [attr.offset]="starsOffset + '%'" stop-color="#6e2747"/>
+        <stop [attr.offset]="starsOffset + 2 + '%'" stop-color="#e0ebeb"/>
+      </linearGradient>
+    </svg>
+  </div>
+  <div class="ratingstars-star" aria-hidden="true">
+    <svg tabindex="-1" [attr.fill]="(stars > 2 && stars < 3) ? 'url(\'#grad3\')' : (stars >= 3 ? 'inherit' : '#e0ebeb')" width="25" height="22" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"/>
+
+      <linearGradient *ngIf="starsOffset" id="grad3">
+        <stop [attr.offset]="starsOffset + '%'" stop-color="#6e2747"/>
+        <stop [attr.offset]="starsOffset + 2 + '%'" stop-color="#e0ebeb"/>
+      </linearGradient>
+    </svg>
+  </div>
+  <div class="ratingstars-star" aria-hidden="true">
+    <svg tabindex="-1" [attr.fill]="(stars > 3 && stars < 4) ? 'url(\'#grad4\')' : (stars >= 4 ? 'inherit' : '#e0ebeb')" width="25" height="22" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"/>
+
+      <linearGradient *ngIf="starsOffset" id="grad4">
+        <stop [attr.offset]="starsOffset + '%'" stop-color="#6e2747"/>
+        <stop [attr.offset]="starsOffset + 2 + '%'" stop-color="#e0ebeb"/>
+      </linearGradient>
+    </svg>
+  </div>
+  <div class="ratingstars-star" aria-hidden="true">
+    <svg tabindex="-1" [attr.fill]="(stars > 4 && stars < 5) ? 'url(\'#grad5\')' : (stars >= 5 ? 'inherit' : '#e0ebeb')" width="25" height="22" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"/>
+      <linearGradient *ngIf="starsOffset" id="grad5">
+        <stop [attr.offset]="starsOffset + '%'" stop-color="#6e2747"/>
+        <stop [attr.offset]="starsOffset + 2 + '%'" stop-color="#e0ebeb"/>
+      </linearGradient>
+    </svg>
+  </div>
+</div>

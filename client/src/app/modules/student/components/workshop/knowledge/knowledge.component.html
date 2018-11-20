@@ -1,0 +1,64 @@
+<section class="knowledge" *ngIf="!finished && QUESTIONS" role="region" aria-label="Review">
+  <div class="title-box">
+    <h2>Review</h2>
+  </div>
+  <div class="container fc-color-border">
+    <form [formGroup]="knowledgeForm">
+      <div class="row align-items-center">
+        <div class="col-lg-10 offset-lg-1">
+          <h3 class="knowledge-question" tabindex="-1"><strong>Question {{currentQuestion.index}} of {{QUESTIONS.length}}:</strong> {{currentQuestion.question}}</h3>
+        </div>
+        <div class="col-lg-6 fc-24-80 fc-24-ma fc-32-100 fc-32-ma fc-24-mb-3 fc-32-mb-3">
+          <ul class="knowledge-form">
+            <li *ngFor="let ans of currentQuestion.answers;">
+              <input class="knowledge-form-checkbox" [hdCheckName]="currentQuestion.index" [ngClass]="{'knowledge-form-checkbox--correct': ans.isCorrect && showCorrectAnswer || ans.isCorrect && showResult && answerId.current == ans.id, 'knowledge-form-checkbox--wrong': showResult !== null && answerId.current == ans.id && !ans.isCorrect || showCorrectAnswer && answerId.last == ans.id}" type="radio" tabindex="0" formControlName="question_{{currentQuestion.index}}" id="ans_{{ans.id}}" value="{{ans.id}}"/>
+              <label for="ans_{{ans.id}}">{{ans.answer}}
+                <span class="sr-only" *ngIf="ans.isCorrect && showCorrectAnswer || ans.isCorrect && showResult && answerId.current == ans.id">Correct</span>
+                <span class="sr-only" *ngIf="showResult !== null && answerId.current == ans.id && !ans.isCorrect || showCorrectAnswer && answerId.last == ans.id">Incorrect</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 fc-24-80 fc-24-ma fc-32-100 fc-32-ma fc-24-mb-3 fc-32-mb-3">
+          <div class="row">
+            <div class="offset-md-1 col-md-10 offset-lg-2 col-lg-8 pt-2" *ngIf="showResult === null">
+              <button class="btn btn-focused btn-block btn-outline-lightpink btn-lg btn-bold" (click)="checkAnswer()" type="button" mat-raised-button type="submit">Submit my answer</button>
+            </div>
+            <div class="col-md-10 offset-md-1">
+              <div class="knowledge-resultbox knowledge-resultbox--correct fc-color-border "*ngIf="showResult === true">
+                <h4 class="knowledge-resultbox-title" *ngIf="!showCorrectAnswer" tabindex="-1">Good Job!</h4>
+                <p class="knowledge-content" *ngIf="showCorrectAnswer" tabindex="-1">{{getAnswerText(answerId.current)}}</p>
+                <div class="knowledge-resultbox-buttons">
+                  <button class="btn btn-focused btn-bold btn-outline-white" (click)="nextQuestion()" [disabled]="currentQuestion.index - 1 == QUESTIONS.length || showResult === false || showResult === null" type="button">
+                    {{currentQuestion.index === QUESTIONS.length ? 'Show Your Progress' : 'Next Question'}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10 offset-md-1">
+              <div class="knowledge-resultbox fc-color-border" *ngIf="showResult === false">
+                <h4 class="knowledge-resultbox-title" tabindex="-1">Try again.</h4>
+                <p class="knowledge-content">{{getAnswerText(answerId.current)}}</p>
+                <div class="knowledge-resultbox-buttons">
+                  <button class="btn btn-bold btn-outline-white btn-sm-block mb-2 ml-0 btn-focused" (click)="tryAgain()" type="button">Reset</button>
+                  <button class="btn btn-bold btn-outline-white mb-2 ml-1 btn-focused" (click)="showCorrectAnswerFunc()" type="button">Show answer</button>
+                  <button class="btn btn-bold btn-outline-white mb-2 ml-1 btn-focused" (click)="watchSegment()" type="button">Watch The Segment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
+    </form>
+  </div>
+</section>
+
+
+<section class="progressbar" role="region" aria-label="Progress">
+  <div class="title-box">
+    <h2>Progress</h2>
+  </div>
+  <div class="container">
+    <hd-progressbar finished="{{finished}}"></hd-progressbar>
+  </div>
+</section>

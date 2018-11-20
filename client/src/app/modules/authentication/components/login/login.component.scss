@@ -1,0 +1,23 @@
+.login{
+  display: flex;
+  height: 100vh;
+}
+.leftside, .rightside{
+  width: 50%;
+  max-width: 50%;
+  flex: 0 0 50%;
+  height: 100vh;
+  padding-top: calc(50vh - 115px);
+}
+
+.rightside{
+  background-color: #3b7cff;
+
+  p{
+    font-size: 1.25rem;
+  }
+}
+
+h1, h2{
+  font-size: 2.25rem;
+}

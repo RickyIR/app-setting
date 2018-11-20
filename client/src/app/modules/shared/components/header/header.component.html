@@ -1,0 +1,70 @@
+<!-- navigation -->
+<div class="skip">
+  <a href="#skip">Skip to Content</a>
+</div>
+<header class="navbar navbar-expand-md navbar-static fc-color-border">
+  <div class="container-fluid px-0">
+     <div class="navbar-header">
+        <a class="navbar-brand" title="Go to Hadley2.0 Home" hdPopup href="#home-page">
+          <img class="navbar-img-logo d-none d-lg-block fc-color-img-logo" src="assets/images/logohadley.png" alt="hadley logo"/>
+          <img class="navbar-img-logo d-block d-lg-none fc-color-img-braille" src="assets/images/braille-logo.jpg" alt="hadley logo"/>
+        </a>
+     </div>
+     <button type="button" class="navbar-toggler navbar-toggle" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="line"></span>
+     </button>
+     <div class="w-100">
+      <hd-nav [module]="module"></hd-nav>
+     </div>
+     <div class="navbar-mid-right">
+        <button type="button" class="btn btn-primary btn-bold navbar-mid-right-button" style="white-space: nowrap!important;" data-toggle="dropdown"  aria-expanded="false" aria-label="font size and contrast options">
+          <span aria-hidden="true">Text +/-</span>
+        </button>
+        <div class="dropdown-menu fc-color-border shadow" id="dropdownSettings">
+            <div class="navbar-mid-right-fontSizes">
+              <div>
+                <p>100%</p>
+                <button data-fontsize="16" (click)="changeFontSize(16)" aria-label="default font size"><span aria-hidden="true">A</span></button>
+              </div>
+              <div>
+                <p>150%</p>
+                <button data-fontsize="24" (click)="changeFontSize(24)" aria-label="medium font size"><span aria-hidden="true">A</span></button>
+              </div>
+              <div>
+                <p>200%</p>
+                <button data-fontsize="32" (click)="changeFontSize(32)" aria-label="large font size"><span aria-hidden="true">A</span></button>
+              </div>
+            </div>
+            <hr class="my-0">
+            <p style="text-align: center;margin-top: 1rem;margin-bottom: 0;font-weight: 700;font-size: 22px;">
+              Change contrast
+            </p>
+            <div class="navbar-mid-right-colors">
+              <button (click)="changeColor('default')" aria-label="white font default"><span aria-hidden="true">A</span></button>
+              <button data-color="yellow" (click)="changeColor('yellow')" aria-label="yellow font"><span aria-hidden="true">A</span></button>
+              <button data-color="white" (click)="changeColor('white')" aria-label="black font"><span aria-hidden="true">A</span></button>
+            </div>
+        </div>
+     </div>
+     <div class="navbar-right fc-color-bg-transparent dropdown">
+        <button class="navbar-profile-toggler" data-toggle="dropdown" aria-expanded="false" aria-controls="dropdownProfile">
+           <div class="navbar-profile-icon" aria-hidden="true">
+              <i class="fas fa-user"></i>
+              <!-- JD -->
+           </div>
+           <span class="sr-only">Profile</span>
+        </button>
+        <div class="dropdown-menu" id="dropdownProfile">
+            <a [routerLink]="['/author']" *ngIf="auth.isAuthenticatedAsAuthor()" class="dropdown-item fc-color-hover-bg"><i class="fas fa-lock mr-3"></i>Author Panel</a>
+            <a class="dropdown-item fc-color-hover-bg" hdPopup href="#settings"> <i class="fas fa-cog mr-3"></i>My Profile</a>
+            <a class="dropdown-item fc-color-hover-bg" hdPopup href="#badges"> <i class="fas fa-trophy mr-3"></i>My Badges</a>
+            <a class="dropdown-item fc-color-hover-bg" hdPopup href="#favorites"> <i class="fas fa-heart mr-3"></i>My Favorites</a>
+            <a class="dropdown-item fc-color-hover-bg" hdPopup href="#playlist"><i class="fas fa-list-ul mr-3"></i>Recommended for me</a>
+            <a class="dropdown-item fc-color-hover-bg" hdPopup href="#mycommunity"><i class="fas fa-users mr-3"></i>My Community</a>
+            <a href="#" class="dropdown-item fc-color-hover-bg" (click)="auth.logout()"> <i class="fas fa-sign-out-alt mr-3"></i>Sign out</a>
+        </div>
+     </div>
+  </div>
+</header>
+<!-- skip to main content -->
+<a name="skip"></a>

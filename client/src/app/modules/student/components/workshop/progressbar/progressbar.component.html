@@ -1,0 +1,52 @@
+<aside class="completion-bar-wrapper">
+  <div class="container">
+    <h3 class="completion-bar-title"><strong>Your Progress</strong> in {{workshop.series.name}} Series</h3>
+    <div class="overflow-x-auto">
+      <div class="completion-bar completion-bar-tooltip">
+        <div class="completion-bar--overflow">
+          <div class="completion-bar--overflow-progress fc-color-bg"></div>
+        </div>
+        <ul class="fc-color-bg-transparent">
+          <li class="fc-color-bg-transparent" *ngFor="let workshop of allworkshops;let i = index;">
+            <a href="#" hdPopup popupText='{{workshop}}||"{{workshop}}" is the next workshop in your series. Selecting this will navigate to that workshop.'>
+              <div class="completion-bar-item">
+                <hd-progressbar-pointer showPointer="{{pointerWorkshop==i+1}}"></hd-progressbar-pointer>
+                <span class="completion-bar-item-number" *ngIf="currentWorkshop<=i+1; else checkmark;">
+                  {{i + 1}}
+                </span>
+                <ng-template #checkmark>
+                  <svg class="checkmark-static" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-static__circle" cx="26" cy="26" r="28"/>
+                    <path class="checkmark-static__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                  </svg>
+                </ng-template>
+                <svg *ngIf="currentWorkshop==i+1 && finished === 'true'" class="checkmark-animate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                  <circle class="checkmark-animate__circle" cx="26" cy="26" r="25" fill="none"/>
+                  <path class="checkmark-animate__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+              </div>
+            </a>
+          </li>
+          <li class="fc-color-bg-transparent">
+            <a hdPopup href="#" popupText="Workshops completed||Lorem ipsum dolor sit amet consectetur adipisicing elit.">
+              <div class="completion-bar-item">
+                <hd-progressbar-pointer showPointer="false"></hd-progressbar-pointer>
+                <i class="fas fa-trophy" aria-hidden="true"></i>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="completion-bar-afterbox animated bounceIn">
+          <p class="text-center">
+            How helpful was this workshop for you?<br>
+            <button (click)="rate()" class="btn btn-darkpink btn-bold btn-lg">RATE US</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

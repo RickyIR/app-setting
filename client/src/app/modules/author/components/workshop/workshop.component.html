@@ -1,0 +1,122 @@
+<div class="main-top">
+  <h1 class="main-title" *ngIf="workshop">Edit workshop <small>{{workshop.name}}</small></h1>
+  <h1 class="main-title" *ngIf="workshop === null">Create new workshop</h1>
+  <!-- <div class="main-right">
+    <button type="button" class="btn btn-outline-lightpink btn-bold">Save Workshop</button>
+    <button type="button" class="main-right-item">All Badges</button>
+    <button type="button" class="main-right-item">My Badges</button>
+  </div> -->
+</div>
+<section class="workshop">
+  <form [formGroup]="workshopForm" (ngSubmit)="workshopFormSubmit(workshopForm.value)" *ngIf="workshop || workshop === null">
+    <h2>Workshop Information</h2>
+    <div class="form-group">
+      <label for="workshopTitle">Title <strong class="text-danger">*</strong></label>
+      <input type="text" id="workshopTitle" class="form-control" required [ngClass]="{'is-invalid': workshopForm.get('title').invalid && workshopForm.get('title').touched}" formControlName="title" placeholder="Enter Title">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('title').invalid && workshopForm.get('title').touched">Title is not correct or missing.</div>
+      <small class="form-text text-muted">Specify a unique title for the workshop.</small>
+    </div>
+    <div class="form-group">
+      <label for="workshopPermalink">URL <strong class="text-danger">*</strong></label>
+      <input type="text" id="workshopPermalink" class="form-control" required [ngClass]="{'is-invalid': workshopForm.get('permalink').invalid && workshopForm.get('permalink').touched}" formControlName="permalink" placeholder="Enter URL">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('permalink').invalid && workshopForm.get('permalink').touched">URL is not correct or missing.</div>
+      <small class="form-text text-muted">No spaces are allowed. Please use '-' instead.</small>
+    </div>
+    <div class="form-group">
+      <label for="workshopDescription">Description <strong class="text-danger">*</strong></label>
+      <textarea id="workshopDescription" class="form-control" required [ngClass]="{'is-invalid': workshopForm.get('description').invalid && workshopForm.get('description').touched}" rows="5" style="resize: none;" placeholder="Enter Description" formControlName="description"></textarea>
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('description').invalid && workshopForm.get('description').touched">Description is not correct or missing.</div>
+    </div>
+    <div class="form-group position-relative">
+      <label for="workshopAuthor">Author <strong class="text-danger">*</strong></label>
+      <input type="text" class="form-control" autocomplete="off" required [ngClass]="{'is-invalid': workshopForm.get('author').invalid && workshopForm.get('author').touched}" id="workshopAuthor" placeholder="Enter Author" formControlName="author">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('author').invalid && workshopForm.get('author').touched">Author is not correct or missing.</div>
+      <small class="form-text text-muted">Start typing author's name</small>
+      <div class="dropdown-menu show live-search">
+        <a href="#" (click)="selectAuthorFromLiveSearch($event, author.name.first + ' ' + author.name.last, author._id)" class="dropdown-item" *ngFor="let author of authors">{{author.name.first}} {{author.name.last}} - <small>{{author._id}}</small></a>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="workshopSeries">Series <strong class="text-danger">*</strong></label>
+      <input type="text" class="form-control" required [ngClass]="{'is-invalid': workshopForm.get('series').invalid && workshopForm.get('series').touched}" id="workshopSeries" placeholder="Enter Series" formControlName="series">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('series').invalid && workshopForm.get('series').touched">Serie is not correct or missing.</div>
+      <small class="form-text text-muted">Start typing the name of the serie</small>
+    </div>
+    <div class="form-group">
+      <label for="workshopTags">Tags <strong class="text-danger">*</strong></label>
+      <input type="text" class="form-control" required [ngClass]="{'is-invalid': workshopForm.get('tags').invalid && workshopForm.get('tags').touched}" id="workshopTags" placeholder="Enter Tags" formControlName="tags">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('tags').invalid && workshopForm.get('tags').touched">Tags are not correct or missing.</div>
+      <small class="form-text text-muted">Use a comma as a separator. <strong>Example: Technology, iPhone, Beginner</strong></small>
+    </div>
+    <!-- <div class="form-group">
+      <label for="workshopDiscussions">Discussions</label>
+      <input type="text" class="form-control" id="workshopDiscussions" [ngClass]="{'is-invalid': workshopForm.get('discussions').invalid && workshopForm.get('discussions').touched}" placeholder="Enter Discussions Group ID" formControlName="discussions">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('discussions').invalid && workshopForm.get('discussions').touched">Discussions Group ID is not correct or missing.</div>
+      <small class="form-text text-muted">Leave empty if there is no discussion for the current workshop.</small>
+    </div>
+    <div class="form-group">
+      <label for="workshopKnowledge">Knowledge</label>
+      <input type="text" class="form-control" id="workshopKnowledge" [ngClass]="{'is-invalid': workshopForm.get('knowledge').invalid && workshopForm.get('knowledge').touched}" placeholder="Enter Knowledge Group ID" formControlName="knowledge">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('knowledge').invalid && workshopForm.get('knowledge').touched">Knowledge Group ID is not correct or missing.</div>
+      <small class="form-text text-muted">Leave empty if you have not created knowledge section yet.</small>
+    </div> -->
+    <div class="form-group">
+      <label for="workshopRating">Rating Question <strong class="text-danger">*</strong></label>
+      <input type="text" class="form-control" required id="workshopRating" [ngClass]="{'is-invalid': workshopForm.get('ratingQuestion').invalid && workshopForm.get('ratingQuestion').touched}" placeholder="Enter Rating Question" formControlName="ratingQuestion">
+      <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('ratingQuestion').invalid && workshopForm.get('ratingQuestion').touched">Rating Question is not correct or missing.</div>
+      <small class="form-text text-muted">Please provide the question for the rating section.</small>
+    </div>
+
+    <div class="mt-5">
+      <h2>Workshop Files</h2>
+
+      <div class="form-group">
+        <label for="workshopFilesResources">Files: Resources</label>
+        <input type="text" class="form-control" id="workshopFilesResources" [ngClass]="{'is-invalid': workshopForm.get('resources').invalid && workshopForm.get('resources').touched}" placeholder="Enter URL of the resources file" formControlName="resources">
+        <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('resources').invalid && workshopForm.get('resources').touched">Resources path is not correct or missing.</div>
+        <small class="form-text text-muted">Please provide the url of the resources.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="workshopFilesMp4">Files: MP4 <strong class="text-danger">*</strong></label>
+        <input type="text" class="form-control" required id="workshopFilesMp4" [ngClass]="{'is-invalid': workshopForm.get('mp4').invalid && workshopForm.get('mp4').touched}" placeholder="Enter URL of the mp4 file" formControlName="mp4">
+        <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('mp4').invalid && workshopForm.get('mp4').touched">MP4 is not correct or missing.</div>
+        <small class="form-text text-muted">Please provide the url of the video.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="workshopFilesMp3">Files: MP3</label>
+        <input type="text" class="form-control" id="workshopFilesMp3" [ngClass]="{'is-invalid': workshopForm.get('mp3').invalid && workshopForm.get('mp3').touched}" placeholder="Enter URL of the mp3 file" formControlName="mp3">
+        <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('mp3').invalid && workshopForm.get('mp3').touched">MP3 is not correct or missing.</div>
+        <small class="form-text text-muted">Please provide the url of the audio.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="workshopFilesCaptions">Files: Captions <strong class="text-danger">*</strong></label>
+        <input type="text" class="form-control" required id="workshopFilesCaptions" [ngClass]="{'is-invalid': workshopForm.get('captions').invalid && workshopForm.get('captions').touched}" placeholder="Enter URL of the captions file" formControlName="captions">
+        <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('captions').invalid && workshopForm.get('captions').touched">Captions is not correct or missing.</div>
+        <small class="form-text text-muted">Please provide the url of the captions.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="workshopFilesTranscript">Files: Transcript</label>
+        <input type="text" class="form-control" id="workshopFilesTranscript" [ngClass]="{'is-invalid': workshopForm.get('transcript').invalid && workshopForm.get('transcript').touched}" placeholder="Enter URL of the transcript file" formControlName="transcript">
+        <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('transcript').invalid && workshopForm.get('transcript').touched">Transcript is not correct or missing.</div>
+        <small class="form-text text-muted">Please provide the url of the transcript.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="workshopFilesPoster">Files: Poster <strong class="text-danger">*</strong></label>
+        <input type="text" class="form-control" required id="workshopFilesPoster" [ngClass]="{'is-invalid': workshopForm.get('poster').invalid && workshopForm.get('poster').touched}" placeholder="Enter URL of the poster file" formControlName="poster">
+        <div class="form-control-feedback invalid-feedback" *ngIf="workshopForm.get('poster').invalid && workshopForm.get('poster').touched">Poster is not correct or missing.</div>
+        <small class="form-text text-muted">Please provide the url of the poster.</small>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-6 offset-md-3">
+          <button type="submit" [disabled]="workshopForm.invalid" class="btn btn-outline-lightpink btn-bold btn-block">{{workshop === null ? 'Create' : 'Save'}} Workshop</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

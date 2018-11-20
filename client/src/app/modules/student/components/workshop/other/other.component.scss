@@ -1,0 +1,149 @@
+@import "./../../../../../../vars.scss";
+
+.workshops{
+  background-color: white;
+  padding: 2rem 0;
+  font-family: $ff_open;
+  border-top-style: solid;
+  position: relative;
+
+  &-top{
+      text-align: center;
+      margin-bottom: 1rem;
+  }
+
+  &-wrapper{
+      background-color: white;
+      border: 1px solid #979797;
+      border-radius: 5px;
+  }
+
+  &-image{
+      img{
+          max-width: 100%;
+          height: auto;
+          background-color: white;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+      }
+  }
+
+  &-body{
+      padding: 10px 20px;
+      color: #434850;
+  }
+
+  &-title{
+      font-size: 1.8rem;
+      font-weight: 600;
+
+      a{
+          color: $c_primary;
+          text-decoration: underline;
+      }
+  }
+
+  &-subtitle{
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  &-item{
+    &-title{
+        font-size: 1.1rem;
+        font-weight: 600;
+
+        a{
+            color: #434850;
+            transition: 0.5s;
+
+            &:hover{
+                color: $c_primary;
+            }
+
+            &:focus{
+              transition: 0s;
+            }
+        }
+    }
+
+    &-content{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    &-expert{
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: underline;
+        color: #434850;
+
+        &:hover{
+          color: $c_primary;
+        }
+
+        &:focus{
+          transition: 0s;
+        }
+    }
+  }
+
+  &-bar{
+      &-stars{
+        height: 25px;
+        line-height: 1;
+
+        @media(max-width: 991px){
+            transform: scale(.6);
+        }
+
+        @media(max-width: 767px){
+            transform: none;
+        }
+      }
+
+      &-item{
+        font-size: .9rem;
+        margin-right: 10px;
+        background: white;
+        color: #595959;
+        transition: 0.5s;
+        padding: 3px 8px;
+        white-space: nowrap;
+
+        @media(max-width: 991px){
+            margin-right: 0;
+            min-width: 75px;
+        }
+        @media(max-width: 767px){
+            margin-right: 10px;
+            min-width: 0;
+        }
+
+
+        @at-root button#{&}{
+            border: 1px solid #f5f5f5;
+            border-radius: 5px;
+
+            &:hover{
+                cursor: pointer;
+                color: white;
+                background-color: lighten(#595959, 10%);
+            }
+
+            &:focus{
+                outline: 2px dotted black;
+                transition: 0s;
+            }
+        }
+
+        &:last-child{
+            margin-right: 0;
+        }
+
+        & i{
+            margin-right: 3px;
+        }
+    }
+  }
+}

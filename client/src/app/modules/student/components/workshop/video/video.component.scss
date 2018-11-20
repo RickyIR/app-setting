@@ -1,0 +1,272 @@
+@import "./../../../../../../vars.scss";
+
+.main-video{
+  background-color: $c_background;
+  padding: 1rem 0 2rem 0;
+
+  &-share{
+    padding: 0;
+    box-shadow: 0 20px 24px rgba(0, 0, 0, 0), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    li{
+      &:focus, &:active, &:hover{
+        background-color: white;
+        outline: 2px dotted black;
+      }
+
+      a{
+        display: block;
+        padding: .75rem 1rem;
+        font-size: 1rem;
+        color: black;
+        text-align: left;
+        text-decoration: none;
+
+        &:hover{
+          color: darken($c_primary, 5%);
+        }
+
+        i{
+          margin-right:1rem;
+        }
+
+        .fa-twitter{
+          color:#1da1f3;
+        }
+
+        .fa-facebook-f{
+          color:#3a559f;
+        }
+      }
+    }
+  }
+
+  &-transcript{
+    max-height: calc(52vh - 70px);
+    margin-top: 4rem;
+    overflow: auto;
+  }
+
+  &-resources{
+    width:100%;
+    &-item{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      margin-top: 4rem;
+      
+      @media(max-width:767px){
+        display: block;
+      }
+      .button-group{
+        @media(max-width:767px){
+          display: flex;
+          align-self: normal;
+          margin: 2rem;
+        }
+        .btn{
+          margin:0.25rem;
+        }
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+
+      &-icon{
+        background-color: $c_secondary;
+        border-radius:18px;
+        text-align: center;
+        height:30px;
+        width: 30px;
+        min-width: 30px;
+        margin-right:1rem;
+        color:white;
+        line-height: 2.1;
+      }
+
+      h3{
+        font-size: 1.25rem;
+        text-decoration: none;
+        margin-bottom: 0;
+      }
+
+      a{
+        color: inherit;
+        text-decoration: underline;
+
+        &:hover, &:focus{
+          color: $c_primary;
+        }
+      }
+
+      p{
+        margin-bottom: 0;
+        width: 70%;
+        min-width: 300px;
+      }
+    }
+  }
+
+  &-content{
+    padding: 20px 59px 76px 59px;
+    margin: auto;
+
+    @media(max-width: 991px){
+      padding: 0px 0px 76px 0px;
+    }
+    @media(max-width: 767px){
+      padding: 0px 0px 5px 0px; 
+    }
+
+    &-bottom{
+      @media(max-width: 991px){
+        padding: 0 15px 10px;
+      }
+    }
+
+    &-buttons{
+      display: flex;
+      justify-content: space-between;
+      @media(max-width: 400px){
+        flex-direction: column;
+
+        & > div{
+          margin-top: 1rem;
+        }
+      }
+
+      a, button{
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  &-wrapper{
+      border: 1px solid #979797;
+      padding: 0;
+      background-color: #fff;
+      border-radius: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      padding-top: 70px;
+  }
+
+  &-title{
+      color: #555962;
+      font-weight: 600;
+      font-size: 1.5rem;
+  }
+
+  &-subtitle{
+      color: #555962;
+  }
+
+  &-expert{
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: underline;
+      color: #555962;
+
+      &:hover, &:focus{
+          color: $c_primary;
+      }
+  }
+}
+
+
+.main-video-content-buttons{
+  position: relative;
+  display:block;
+
+  .btn-transcript, .btn-resource{
+    // position: absolute;
+    width:200px;
+    background:red;
+    text-align: center;
+  }
+  
+  .btn-resource{
+    left:4rem;
+  }
+
+  .b1{
+    position: absolute;
+    width: 157px;
+  }
+  .b2{
+    position: absolute;
+    width: 160px;
+    left: 12rem;
+  }
+  .b5{
+    position: absolute;
+    width: 177px;
+    right: 12rem;
+  }
+  .b6{
+    position: absolute;
+    width: 177px;
+    right: 0rem;
+  }
+  
+  
+  @media(max-width: 991px){
+    .b1{
+      width: 140px;
+    }
+    .b2{
+  
+      width: 160px;
+      left: 11rem;
+    }
+    .b5{
+   
+      width: 134px;
+      right: 13rem;
+    }
+    .b6{
+      right: 0rem;
+    }
+  }
+
+  .main-video-resources{
+    order: 4; 
+  }
+  .main-video-transcript{
+    order:3
+  }
+  
+  .otherbtn{
+    order: 2;
+  }
+  
+  
+  @media(max-width: 767px){
+      display: block;
+    
+    .b1, .b2, .b5, .b6{
+      position:static;
+      left:0rem;
+      right:0rem;
+      width:100%;
+    }
+
+    .main-video-resources{
+      order: 0; 
+    }
+    .main-video-transcript{
+      order:0;
+    }
+    
+    .otherbtn{
+      order: 0;
+    }
+  }
+
+}
+
+
+
+

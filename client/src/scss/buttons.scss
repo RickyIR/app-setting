@@ -1,0 +1,67 @@
+/* Creating additional bootstrap buttons */
+.btn{
+  &-outline{
+    &-darkpink{
+      @include button-outline-variant($c_primary);
+    }
+
+    &-lightpink{
+      @include button-outline-variant($c_secondary);
+
+      &--darker{
+        @include button-outline-variant(darken($c_secondary, 3%));
+      }
+    }
+
+    &-white{
+      @include button-outline-variant(white, $c_secondary);
+    }
+
+    &-lightgray{
+      @include button-outline-variant(#7e8591, white);
+    }
+
+    
+    &-primary{
+      @include button-outline-variant($c_primary);
+    }
+  }
+
+  /*
+  * Regular buttons colors
+  */
+
+  &-darkpink{
+    @include button-variant($c_primary, $c_primary);
+  }
+
+  &-primary{
+    @include button-variant($c_primary, $c_primary);
+  }
+
+  /*
+  * Regular buttons styles
+  */
+
+  &-bold{
+    border-width: 2px;
+    font-weight: 600;
+  }
+
+  &-capsule{
+    border-radius: 25px;
+  }
+
+  &-text{
+    @media(max-width: 991px){
+      display: none;
+    }
+  }
+
+  &:focus{
+    outline: 2px dotted #000000;
+    transition: 0s;
+    box-shadow: none;
+    outline-offset: 3px;
+  }
+}

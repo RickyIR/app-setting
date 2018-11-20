@@ -1,0 +1,88 @@
+<section class="workshops" role="region" aria-label="Explore">
+  <div class="title-box">
+    <h2>Explore</h2>
+  </div>
+  <div class="container">
+      <div class="workshops-top">
+        <h3 class="workshops-title">People who learned about
+          <ng-template ngFor let-tag [ngForOf]="tags" let-i="index">
+            <a href="#" class="text-link" hdPopup popupText="{{tag}}||Takes you to other workshops that teach {{tag}}.">{{tag}}</a>
+            <span *ngIf="i!==tags.length-1"> and </span>
+          </ng-template>
+          also took</h3>
+      </div>
+      <div class="row">
+          <div class="col-md-4 mb-2 mb-md-0 fc-24-lg-100 fc-32-lg-100">
+              <div class="workshops-wrapper">
+                  <div class="workshops-image">
+                    <a hdPopup href="#workshop-image-one" aria-hidden="true">
+                      <img src="assets/images/1.workshops.png" alt="" />
+                    </a>
+                  </div>
+                  <div class="workshops-body">
+                      <h4 class="workshops-item-title"> <a hdPopup href="#workshop-title-one">Playtime with Your Pup</a></h4>
+                      <p class="workshops-item-content">with <a class="workshops-item-expert" hdPopup href="#workshop-profile">Julia Sheers</a></p>
+                      <div class="workshops-bar">
+                          <div class="d-flex justify-content-between">
+                              <span>2,203 views</span>
+                            <div class="workshops-bar-stars">
+                                <hd-rating-stars rating="3"></hd-rating-stars>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4 mb-2 mb-md-0 fc-24-lg-100 fc-32-lg-100">
+              <div class="workshops-wrapper">
+                  <div class="workshops-image">
+                    <a hdPopup href="#workshop-image-two"  aria-hidden="true">
+                      <img src="assets/images/2.workshops.png" alt="" />
+                    </a>
+                  </div>
+                  <div class="workshops-body">
+                      <h4 class="workshops-item-title"><a hdPopup href="#workshop-title-two">Keyboarding Basics</a></h4>
+                      <p class="workshops-item-content">with <a class="workshops-item-expert" hdPopup href="#workshop-profile">Milton Charzky</a></p>
+                      <div class="workshops-bar">
+                          <div class="d-flex justify-content-between">
+                            <span>8,424 views</span>
+                            <div class="workshops-bar-stars">
+                              <hd-rating-stars rating="4"></hd-rating-stars>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4 fc-24-lg-100 fc-32-lg-100">
+              <div class="workshops-wrapper">
+                  <div class="workshops-image">
+                      <a hdPopup href="#workshop-image-three"  aria-hidden="true">
+                        <img src="assets/images/3.workshops.png" alt="" />
+                      </a>
+                    </div>
+                  <div class="workshops-body">
+                      <h4 class="workshops-item-title"><a hdPopup href="#workshop-title-three">101: Becoming a Blogger</a></h4>
+                      <p class="workshops-item-content">with <a class="workshops-item-expert" hdPopup href="#workshop-profile">Margo Bennet</a></p>
+                      <div class="workshops-bar">
+                          <div class="d-flex justify-content-between">
+                            <span>1,324 views</span>
+                            <div class="workshops-bar-stars">
+                              <hd-rating-stars rating="5"></hd-rating-stars>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="offset-md-3 col-md-6 offset-lg-4 col-lg-4 mt-3">
+            <button class="btn btn-block btn-focused btn-lg btn-outline-lightpink btn-bold" type="button" hdPopup id="moreWorkshops">More workshops</button>
+          </div>
+
+          <div class="col-md-12 text-center mt-3">
+            <p class="workshops-subtitle">Give us <strong>your</strong> idea for a workshop you’d like us to offer. <br />
+              <button class="mt-3 btn btn-focused btn-outline-lightpink btn-bold" hdPopup href="#submit-idea">Submit my idea</button></p>
+          </div>
+      </div>
+  </div>
+</section>

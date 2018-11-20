@@ -1,0 +1,96 @@
+<div class="main-top">
+  <h1 class="main-title">
+    Create new Quiz
+    <!-- <span class="main-title--badge">({{quizzes?.length}})</span> -->
+  </h1>
+  <!-- <div class="main-right">
+    <a [routerLink]="['/author/quiz/new']" class="btn btn-outline-lightpink btn-bold"><i class="fas fa-plus-circle mr-1"></i> Create new Quiz</a>
+    <button type="button" class="main-right-item">All Badges</button>
+    <button type="button" class="main-right-item">My Badges</button>
+  </div> -->
+</div>
+<section class="quiz">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Quiz Information</h2>
+    <button (click)="createQuestion()" class="btn btn-outline-lightpink btn-bold">Add question</button>
+  </div>
+  <div class="quiz-message" *ngIf="!questions.length">
+    <div class="py-5">
+      <p>You don't have any questions yet.</p>
+      <p>Please press "Add question" button to get started</p>
+    </div>
+  </div>
+  <div class="quiz-item" *ngFor="let item of questions; let ind = index;">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>{{item.index}}. {{item.question}}</h3>
+        <p>Time Stamp: <small>{{item.timeStamp}}</small></p>
+        <p>allowTryAgain: <small>{{item.allowTryAgain}}</small></p>
+        <p>allowShowAnswer: <small>{{item.allowShowAnswer}}</small></p>
+        <p class="mb-0">Answers: <small>{{!item.answers.length ? 'No Answers' : ''}}</small></p>
+      </div>
+      <div class="col-md-2 offset-md-1" *ngIf="currentQuestion && currentQuestion.index == item.index">
+        <button (click)="saveQuestion()" class="btn btn-lightpink btn-sm btn-block">Save</button>
+      </div>
+      <div class="col-md-2" *ngIf="!currentQuestion || currentQuestion.index !== item.index">
+        <button (click)="editQuestion(item.index)" class="btn btn-lightgreen btn-sm btn-block">Edit</button>
+      </div>
+      <div class="col-md-2" *ngIf="!currentQuestion || currentQuestion.index !== item.index">
+        <button (click)="removeQuestion(ind)" class="btn btn-danger btn-sm btn-block">Delete</button>
+      </div>
+    </div>
+    <div class="quiz-answers pl-5">
+      <div *ngIf="item.answers.length">
+        <p *ngFor="let answer of item.answers; let i = index;">
+          <a *ngIf="currentQuestion && currentQuestion.index == item.index" href="#" (click)="removeAnswer($event, i)" class="text-danger mr-4">
+            <i class="fas fa-times"></i>
+            <span class="sr-only">Remove answer</span>
+          </a>
+          <span>
+            {{i+1}}. {{answer.answer}} (<span [ngClass]="{'text-success': answer.isCorrect, 'text-danger': !answer.isCorrect}">{{answer.isCorrect ? 'Correct' : 'Incorrect'}}</span>)
+          </span>
+        </p>
+      </div>
+      <div *ngIf="currentQuestion && currentQuestion.index == item.index">
+        <hr>
+        <form [formGroup]="answerForm" class="row align-items-center pt-2" (ngSubmit)="addAnswer(answerForm.value)">
+          <div class="col-md-8">
+            <div class="row align-items-center">
+              <div class="col-md-9">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">{{currentQuestion.answers.length + 1}}</div>
+                  </div>
+                  <input type="text" class="form-control" formControlName="answer" placeholder="Enter answer">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="isCorrect" formControlName="isCorrect">
+                  <label class="form-check-label" for="isCorrect">
+                    Correct
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row pt-3">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <textarea style="width: 100%; resize: none;" class="form-control" id="explanation" formControlName="explanation" rows="3" placeholder="Explanation"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+              <button type="submit" [disabled]="answerForm.invalid" class="btn btn-primary btn-sm btn-block">Add answer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <button (click)="saveQuiz()" [disabled]="!questions || !questions.length" class="btn-outline-lightpink btn btn-lg btn-block btn-bold">Save Quiz</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<nav>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+     <ul class="navbar-nav">
+        <li *ngFor="let item of links" class="nav-item">
+          <ng-template [ngIf]="item.isRouter" [ngIfElse]="popupProto">
+            <a class="nav-link px-0" [routerLink]="item.url">{{item.title}}</a>
+          </ng-template>
+          <ng-template #popupProto>
+            <a class="nav-link px-0" hdPopup [href]="item.url">{{item.title}}</a>
+          </ng-template>
+        </li>
+     </ul>
+  </div>
+</nav>

@@ -1,0 +1,33 @@
+<swal #ratingSwal  [options]="{ confirmButtonText: 'Submit', showCloseButton: true, confirmButtonColor: '#008085' }" [preConfirm]="preConfirmFeedback" (close)="WorkshopComponent.showAlert=false" (confirm)="submitFeedback(feedbackForm)">
+  <div *swalPartial>
+    <h2 class="swal-title">RATE</h2>
+    <p class="text-center"><strong>How helpful was this workshop for you?</strong><br>(1 = very poor and 5 = excellent)</p>
+    <form [formGroup]="feedbackForm">
+      <div class="rating-stars" [ngClass]="{'has-checked': feedbackForm.dirty}">
+        <div class="d-flex justify-content-center align-items-center ml-auto mr-auto mb-2 rating-stars-wrapper rating-popup">
+          <input type="radio" id="rating-star-1--popup" name="rating" class="rating-stars-item" formControlName="rating" tabindex="0" value="1">
+          <label for="rating-star-1--popup"><span class="sr-only">1 out of 5 stars</span></label>
+          <input type="radio" id="rating-star-2--popup" name="rating" class="rating-stars-item" formControlName="rating" tabindex="0" value="2">
+          <label for="rating-star-2--popup"><span class="sr-only">2 out of 5 stars</span></label>
+          <input type="radio" id="rating-star-3--popup" name="rating" class="rating-stars-item" formControlName="rating" tabindex="0" value="3">
+          <label for="rating-star-3--popup"><span class="sr-only">3 out of 5 stars</span></label>
+          <input type="radio" id="rating-star-4--popup" name="rating" class="rating-stars-item" formControlName="rating" tabindex="0" value="4">
+          <label for="rating-star-4--popup"><span class="sr-only">4 out of 5 stars</span></label>
+          <input type="radio" id="rating-star-5--popup" name="rating" class="rating-stars-item" formControlName="rating" tabindex="0" value="5">
+          <label for="rating-star-5--popup"><span class="sr-only">5 out of 5 stars</span></label>
+        </div>
+      </div>
+      <div class="rating-feedback-group mb-2 text-left">
+        <label class="rating-feedback-label" for="feedback--popup">
+
+          <span>{{feedbackForm.get('rating').value && feedbackForm.get('rating').value < 3 ? 'What disappointed you?' : 'What did you like the best?'}}</span>
+          <!-- Do you have any advice to improve our lesson? -->
+        </label>
+        <textarea class="rating-feedback-textarea" name="feedback--popup" id="feedback--popup" placeholder="Enter your comments here..."></textarea>
+      </div>
+    </form>
+    <div class="swal2-validationerror" style="margin-left: -20px; margin-right: -20px;">
+      Something went wrong. Please try again later.
+    </div>
+  </div>
+<swal>

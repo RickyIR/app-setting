@@ -1,0 +1,55 @@
+<section class="discussions" role="region" aria-label="Discuss">
+  <div class="title-box">
+    <h2>Discuss</h2>
+  </div>
+  <div class="container">
+    <div class="main-video-tablist">
+      <div *ngIf="!discussions || discussions.length == 0">
+        No discussions
+      </div>
+      <div *ngIf="discussions && discussions.length">
+        <div class="row align-items-start"> <!--Added a row-->
+          <div class="col-md-12"> <!--Added a col-->
+            <!-- <div class="discussions-title">
+              <div class="discussions-title-bg fc-24-ma fc-32-ma">
+                <div class="mb-1">
+                  <i class="fas fa-users"></i>
+                </div>
+              <h2>Peers</h2>
+              </div>
+            </div> -->
+            <div *ngFor="let discussion of discussions; let i = index;">
+              <div class="discussions-item">
+                <a hdPopup popupText="User Profile||Profile information of the user" class="discussions-icon">
+                  <div *ngIf="discussion.user.image.url; else initialsImage">
+                    <img src="{{discussion.user.image.url}}" alt="{{discussion.user.image.alt}}"/>
+                  </div>
+                  <ng-template #initialsImage>
+                    <div class="discussions-icon-initials" [ngStyle]="{'background-color': ['#9E217F', '#114E75', '#1C7511'][i]}">
+                      <span>
+                        {{discussion.user.name.first[0]}}
+                      </span>
+                    </div>
+                  </ng-template>
+                </a>
+                <div class="discussions-item-post">
+                  <h3 class="discussions-item-title"><a hdPopup href="{{discussion.permalink}}">{{discussion.title}}</a></h3>
+                  <p class="mb-0">Asked on <span class="f-w-600">{{discussion.date.created | date: 'MMMM d, y'}} </span>by <a hdPopup popupText="User Profile||Profile information of the user">{{discussion.user.name.first}} {{discussion.user.name.last}}</a></p>
+                </div>
+              </div>
+              <hr *ngIf="i<2">
+            </div>
+            <div class="row mt-5 mb-3">
+              <div class="col-lg-6 mt-2 fce-32-mx100">
+                <button class="btn btn-block btn-outline-lightpink btn-lg btn-bold" hdPopup id="viewAllDiscussions">View all discussions</button>
+              </div>
+              <div class="col-lg-6 mt-2 fce-32-mx100">
+                <button class="btn-outline-lightpink--darker btn btn-lg btn-block btn-bold" hdPopup id="startConversation">Start a discussion</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

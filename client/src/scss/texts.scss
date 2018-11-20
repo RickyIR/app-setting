@@ -1,0 +1,13 @@
+@import './../vars.scss';
+
+.space-nowrap{
+  white-space: nowrap;
+}
+
+a.text-link{
+  color: $c_minors!important;
+
+  &:hover{
+    color: darken($c_minors, 10%)!important;
+  }
+}

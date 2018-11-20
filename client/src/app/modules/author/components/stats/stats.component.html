@@ -1,0 +1,58 @@
+<div class="main-top">
+  <h1 class="main-title">Font Research Statistics ({{totalCount}})</h1>
+  <div class="main-right" [ngClass]="{'fa-spin': isLoading}">
+    <a href="#" (click)="loadFonts($event)">
+      <i class="fas fa-sync-alt fa-2x"></i>
+    </a>
+  </div>
+</div>
+<section class="stats">
+  <div class="container pb-3" *ngIf="stats">
+    <div class="stats-progress">
+      <circle-progress
+        [percent]="stats.gothic"
+        title="Gothic"
+        [subtitle]="stats.gothic + '%'"
+        subtitleFontSize="16"
+      ></circle-progress>
+      <circle-progress
+        [percent]="stats.gotham"
+        title="Gotham"
+        [subtitle]="stats.gotham + '%'"
+        subtitleFontSize="16"
+      ></circle-progress>
+      <circle-progress
+        [percent]="stats.univers"
+        title="Univers"
+        [subtitle]="stats.univers + '%'"
+        subtitleFontSize="16"
+      ></circle-progress>
+      <circle-progress
+        [percent]="stats.none"
+        title="None"
+        [subtitle]="stats.none + '%'"
+        subtitleFontSize="16"
+      ></circle-progress>
+    </div>
+    <div class="table-wrapper" *ngIf="fonts">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Font</th>
+            <th class="text-center">Date</th>
+            <th class="text-right">SessionID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of fonts; let i = index;">
+            <td>{{i + 1}}</td>
+            <td class="text-capitalize">{{item.font}}</td>
+            <td class="text-center">{{item.date | timeAgo}}</td>
+            <td class="text-right">{{item.session}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

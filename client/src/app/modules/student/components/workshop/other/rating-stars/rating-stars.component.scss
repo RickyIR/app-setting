@@ -1,0 +1,12 @@
+@import "./../../../../../../../vars.scss";
+
+.ratingstars{
+  fill: $c_primary;
+  display: flex;
+  justify-content: flex-end;
+  background: white;
+
+  &-star{
+    padding: 4px 0;
+  }
+}
